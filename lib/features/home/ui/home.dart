@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
         if (state is HomeNavigateToCartListActionState) {
           Navigator.of(context).pushNamed(CartScreen.routeName);
         } else if (state is HomeNavigateToWishListActionState) {
-          Navigator.of(context).pushNamed(WishlistScreen.routeName);
+          Navigator.of(context).pushNamed(WishListScreen.routeName);
         }
       },
       builder: (context, state) {
