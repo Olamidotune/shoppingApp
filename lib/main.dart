@@ -23,8 +23,8 @@ class MyApp extends StatelessWidget {
         routes: {
           Home.routeName:(context) => const Home(),
           CartScreen.routeName: (context) => const CartScreen(),
-          // ignore: equal_keys_in_map
-          WishListScreen.routeName: (context) => const WishListScreen()
+         
+          WishlistScreen.routeName: (context) => const WishlistScreen()
         });
   }
 }

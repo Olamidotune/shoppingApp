@@ -1,21 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:shoppingapp/features/home/bloc/home_bloc.dart';
+import 'package:shoppingapp/features/cart/bloc/cart_bloc.dart';
 import 'package:shoppingapp/features/home/bloc/model/porduct_data_model.dart';
 
-class ProductTile extends StatelessWidget {
+class CartProductTile extends StatelessWidget {
   final ProductDataModel productDataModel;
-  final HomeBloc homeBloc;
-  final String name;
-  final String id;
-  final String imageName;
-  // final double price;
-  const ProductTile({
+  final CartBloc cartBloc;
+
+  const CartProductTile({
     super.key,
     required this.productDataModel,
-    required this.name,
-    required this.id,
-    required this.imageName,
-    required this.homeBloc,
+    required this.cartBloc,
   });
 
   @override
@@ -52,23 +46,8 @@ class ProductTile extends StatelessWidget {
               Text(productDataModel.name),
               IconButton(
                 onPressed: () {
-                  homeBloc.add(
-                    HomeProductWishListButtonClickedEvent(
-                      clickedWishlistItem: productDataModel,
-                    ),
-                  );
-                },
-                icon: const Icon(Icons.favorite_outline),
-              ),
-              IconButton(
-                onPressed: () {
-                  homeBloc.add(
-                    HomeProductCartButtonClickedEvent(
-                      //i am getting this through the constructor and the clikcedCartItem is a variable of 
-                      //productdataModel 
-                      clickedCartItem: productDataModel,
-                    ),
-                  );
+                  cartBloc.add(
+                      RemoveFromCartEvent(productDataModel: productDataModel));
                 },
                 icon: const Icon(
                   Icons.shopping_cart_outlined,

@@ -22,13 +22,13 @@ class GroceryData {
       'id': '4',
       'name': 'Fresh Pineapple',
       'price': 0.24,
-      'imageName': 'https://bit.ly/3p1oVbQ'
+      'imageName': 'https://shorturl.at/loqLP'
     },
     {
       'id': '5',
       'name': 'Fresh Watermelon',
       'price': 0.51,
-      'imageName': 'https://bit.ly/3p1oVbQ'
+      'imageName': 'https://shorturl.at/pstzR'
     },
     // {'id': 6, 'name': 'Fresh banana', 'price': 0.35, 'imageName': ''}
   ];

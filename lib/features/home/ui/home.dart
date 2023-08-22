@@ -35,7 +35,25 @@ class _HomeState extends State<Home> {
         if (state is HomeNavigateToCartListActionState) {
           Navigator.of(context).pushNamed(CartScreen.routeName);
         } else if (state is HomeNavigateToWishListActionState) {
-          Navigator.of(context).pushNamed(WishListScreen.routeName);
+          Navigator.of(context).pushNamed(WishlistScreen.routeName);
+        } else if (state is HomeWishlistSnackbarActionState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              backgroundColor: Colors.green,
+              duration: Duration(seconds: 3),
+              content: Text(
+                "Item has been added to your wishlist",
+              ),
+            ),
+          );
+        } else if (state is HomeCartSnackbarActionState) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              backgroundColor: Colors.green,
+              duration: Duration(seconds: 3),
+              content: Text("Item has been added to your cart"),
+            ),
+          );
         }
       },
       builder: (context, state) {
@@ -81,17 +99,17 @@ class _HomeState extends State<Home> {
                   ],
                 ),
                 body: ListView.builder(
-                  itemCount: successState.products.length,
-                  itemBuilder: (context, index) {
-                    //i called productDataModel through successState
-                    return ProductTile(
-                      productDataModel: successState.products[index],
-                      id: successState.products[index].id,
-                      imageName: successState.products[index].imageName,
-                      name: successState.products[index].name,
-                    );
-                  }
-                ));
+                    itemCount: successState.products.length,
+                    itemBuilder: (context, index) {
+                      //i called productDataModel through successState
+                      return ProductTile(
+                        productDataModel: successState.products[index],
+                        id: successState.products[index].id,
+                        imageName: successState.products[index].imageName,
+                        name: successState.products[index].name,
+                        homeBloc: homeBloc,
+                      );
+                    }));
           case HomeErrorState:
             return const Scaffold(
               body: Center(
