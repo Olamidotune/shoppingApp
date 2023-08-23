@@ -26,5 +26,6 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     emit(
       CartSuccessState(cartItems: cartItems),
     );
+    emit(RemoveFromCartSnackBarActionState());
   }
 }

@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
         routes: {
           Home.routeName:(context) => const Home(),
           CartScreen.routeName: (context) => const CartScreen(),
-         
           WishlistScreen.routeName: (context) => const WishlistScreen()
         });
   }

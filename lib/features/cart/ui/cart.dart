@@ -31,7 +31,17 @@ class _CartScreenState extends State<CartScreen> {
         bloc: cartBloc,
         listenWhen: (previous, current) => current is CartActionState,
         buildWhen: (previous, current) => current is! CartActionState,
-        listener: (context, state) {},
+        listener: (context, state) {
+          if (state is RemoveFromCartSnackBarActionState) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              const SnackBar(
+                duration: Duration(seconds: 2),
+                backgroundColor: Colors.red,
+                content: Text('Item removed from cart'),
+              ),
+            );
+          }
+        },
         builder: (context, state) {
           switch (state.runtimeType) {
             case CartSuccessState:
